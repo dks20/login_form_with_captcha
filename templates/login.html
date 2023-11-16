@@ -1,0 +1,107 @@
+<style>
+  /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Ensure elements stack vertically */
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 16px; /* Add some spacing between the login form and the link */
+    display: block; /* Ensure "Forgot Password?" is on a new line */
+}
+
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        /* Style for disabled button */
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form action="/" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <div class="g-recaptcha" data-sitekey="6LdRJREpAAAAACO0TvtG2J3CjLAzcmyWkhRs_OiK" data-callback="recaptchaCallback"></div>
+
+        <!-- Sign Up button -->
+        <button type="submit" id="signupButton" disabled>Sign Up</button>
+    </form>
+
+    <!-- Forgot Password link -->
+    <p><a href="https://support.google.com/accounts/answer/41078?hl=en&co=GENIE.Platform%3DDesktop" target="_blank">Forgot Password?</a></p>
+
+    <script>
+        // Callback function triggered after reCAPTCHA is verified
+        function recaptchaCallback() {
+            // Enable the Sign Up button
+            document.getElementById('signupButton').disabled = false;
+        }
+    </script>
+</body>
+</html>
