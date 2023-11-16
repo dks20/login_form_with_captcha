@@ -1,3 +1,9 @@
+#cmd commands
+pip install Flask Flask-MySQLdb
+pip install requests
+
+
+#MySQL Commands
 CREATE DATABASE user_auth;
 USE user_auth;
 
